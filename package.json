@@ -1,0 +1,98 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vicinaehq/vicinae/refs/heads/main/extra/schemas/extension.json",
+  "name": "opencode-ask",
+  "title": "OpenCode Ask",
+  "description": "Ask OpenCode anything without leaving Vicinae. Responses stream straight into the launcher.",
+  "categories": [
+    "Developer Tools",
+    "Productivity"
+  ],
+  "license": "MIT",
+  "platforms": [
+    "Linux"
+  ],
+  "author": "kaareloun",
+  "contributors": [],
+  "pastContributors": [],
+  "icon": "extension_icon.png",
+  "commands": [
+    {
+      "name": "ask",
+      "title": "Ask OpenCode",
+      "subtitle": "Ask AI without leaving Vicinae",
+      "description": "Type a question, hit Enter, and watch the OpenCode answer stream in.",
+      "mode": "view",
+      "icon": "ask_icon.png",
+      "keywords": [
+        "ai",
+        "opencode",
+        "chat"
+      ]
+    }
+  ],
+  "preferences": [
+    {
+      "name": "binary",
+      "title": "OpenCode binary",
+      "description": "Path or name of the opencode executable.",
+      "required": false,
+      "type": "textfield",
+      "default": "opencode"
+    },
+    {
+      "name": "directory",
+      "title": "Working directory",
+      "description": "Directory opencode runs in (project context). Empty = home directory.",
+      "required": false,
+      "type": "directory"
+    },
+    {
+      "name": "model",
+      "title": "Model override",
+      "description": "Provider/model opencode runs as. Default is the free big-pickle for fastest answers.",
+      "required": false,
+      "type": "textfield",
+      "default": "opencode/big-pickle"
+    },
+    {
+      "name": "variant",
+      "title": "Reasoning effort variant",
+      "description": "Effort opencode runs with (none, minimal, low, medium, high, xhigh, max). Lowest = fastest.",
+      "required": false,
+      "type": "textfield",
+      "default": "minimal"
+    },
+    {
+      "name": "agent",
+      "title": "Agent",
+      "description": "Agent opencode runs as. Always plan unless you explicitly change it — never build.",
+      "required": false,
+      "type": "textfield",
+      "default": "plan"
+    },
+    {
+      "name": "auto-ask",
+      "title": "Ask fallback text automatically",
+      "label": "Auto-ask",
+      "description": "When launched from root search with a query (fallback), start asking immediately instead of waiting for Enter.",
+      "required": false,
+      "type": "checkbox",
+      "default": true
+    }
+  ],
+  "scripts": {
+    "build": "vici build",
+    "dev": "vici develop",
+    "format": "biome format --write src",
+    "lint": "vici lint"
+  },
+  "dependencies": {
+    "@vicinae/api": "^0.29.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.2",
+    "@types/node": "^22.7.0",
+    "@types/react": "^19.1.17",
+    "typescript": "^5.6.0"
+  }
+}
